@@ -3,8 +3,8 @@
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Panel de Control</h1>
-        <a href="{{ route('tasks.export.csv') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generar Reporte</a>
+        <a href="{{ route('tasks.export.csv') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> <i
+                class="fas fa-download fa-sm text-white-50"> </i> Generar Reporte</a>
 
 
     </div>
@@ -97,10 +97,7 @@
 
 
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <!-- Bootstrap JS -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
 
 
 
@@ -209,29 +206,6 @@
 
 
             
-            <style>
-                .task-description {
-                    margin-top: 10px;
-                    padding: 10px;
-                    background-color: #f8f9fa;
-                    /* Fondo claro */
-                    border: 1px solid #ddd;
-                    border-radius: 5px;
-                }
-
-                .task-progress-bar {
-                    cursor: pointer;
-                }
-
-                .task-progress {
-                    margin-bottom: 20px;
-                }
-
-                .progress {
-                    height: 10px;
-                }
-            </style>
-
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
                     // Selecciona todas las barras de progreso de las tareas
@@ -337,9 +311,4 @@
     <!-- End of Content Wrapper -->
 
     </div>
-@endsection
-
-@section('scripts')
-    <!-- Importa el archivo de JavaScript desde la carpeta public -->
-    <script src="{{ asset('js/task-progress.js') }}"></script>
 @endsection
