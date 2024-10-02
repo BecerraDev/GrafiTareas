@@ -1,46 +1,47 @@
 # Usa la imagen oficial de PHP con Apache
 FROM php:8.1-apache
 
-# Instala las extensiones necesarias para Laravel y MySQL
-RUN apt-get update && apt-get install -y \
-    libzip-dev \
-    libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
-    libonig-dev \
+# Actualiza los repositorios de paquetes
+RUN apt-get update && apt-get upgrade -y
+
+# Instala dependencias del sistema y extensiones necesarias en pasos separados
+RUN apt-get install -y \
     zip \
     unzip \
     git \
     curl \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libonig-dev \
+    libzip-dev \
     libxml2-dev \
     libpq-dev \
-    libonig-dev \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Configura e instala las extensiones de PHP
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd pdo pdo_mysql mbstring zip opcache tokenizer xml ctype
 
 # Instala Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Copia todo el contenido del proyecto Laravel al contenedor
-COPY . /var/www/html
-
-# Cambia el directorio de trabajo
-WORKDIR /var/www/html
+# Copia el contenido del proyecto al contenedor
+COPY . /var/www/html/
 
 # Instala las dependencias de Composer
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
-# Asegúrate de que los directorios de almacenamiento tengan los permisos correctos
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
-    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+# Cambia la propiedad de los archivos a www-data
+RUN chown -R www-data:www-data /var/www/html
 
-# Configura Apache para que apunte al directorio public de Laravel
+# Configura Apache para que use el directorio public de Laravel
 RUN sed -i -e 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|' /etc/apache2/sites-available/000-default.conf
 
-# Habilitar el mod_rewrite de Apache (necesario para Laravel)
-RUN a2enmod rewrite
+# Asegura que los directorios de almacenamiento tengan los permisos correctos
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Exponer el puerto 80 para el tráfico HTTP
+# Exponer el puerto 80
 EXPOSE 80
 
 # El contenedor se ejecutará usando Apache
