@@ -4,14 +4,14 @@ FROM php:8.1-apache
 # Actualiza los repositorios de paquetes
 RUN apt-get update && apt-get upgrade -y
 
-# Instala dependencias del sistema y extensiones necesarias en pasos separados
+# Instala dependencias del sistema y extensiones necesarias
 RUN apt-get install -y \
     zip \
     unzip \
     git \
     curl \
     libpng-dev \
-    libjpeg-dev \
+    libjpeg62-turbo-dev \  # Cambio en la librería de JPEG
     libfreetype6-dev \
     libonig-dev \
     libzip-dev \
@@ -19,9 +19,11 @@ RUN apt-get install -y \
     libpq-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Configura e instala las extensiones de PHP
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd pdo pdo_mysql mbstring zip opcache tokenizer xml ctype
+# Configura e instala las extensiones de PHP, sin configurar GD
+RUN docker-php-ext-install pdo pdo_mysql mbstring zip opcache tokenizer xml ctype
+
+# Instalación básica de GD sin parámetros personalizados
+RUN docker-php-ext-install gd
 
 # Instala Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
