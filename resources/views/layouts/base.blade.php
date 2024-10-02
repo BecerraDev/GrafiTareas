@@ -33,10 +33,7 @@
      
     @vite(['resources/css/app.css', 'resources/js/app.js']) <!-- Asegúrate de que esto esté presente -->
 
-    <!-- Custom styles for this template-->
-
-
-
+    <!---->
 </head>
 
 <body id="page-top">
