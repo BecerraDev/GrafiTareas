@@ -15,3 +15,13 @@ Laravel: Framework PHP para el desarrollo web.
 MySQL: Base de datos utilizada para almacenar información de las tareas.
 
 Video: https://www.youtube.com/watch?v=VsahuWvliRw
+
+///////////////////////////////////////////////////////////////////////
+Instalación.
+
+> Npm Install.
+> Usar servidor local. (xampp o laragon)
+> Instalar sql.
+> Instalar dependencias.
+> Ejecutar.
+//////////////////////////////////////////////////////////////////////
