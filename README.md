@@ -34,12 +34,8 @@ Grafitareas es una aplicación web desarrollada con **Laravel** que permite gest
    ```bash
    npm install
 2. Usar un servidor local como XAMPP o Laragon.
-
 3. Configurar base de datos MySQL.
-
 4. Instalar dependencias de Laravel con:
-
 5. Composer install
-   
-Ejecutar el proyecto.
+6. Ejecutar el proyecto.
 
