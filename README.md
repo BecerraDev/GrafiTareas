@@ -1,27 +1,45 @@
+# GRAFITAREAS - Administrador de Tareas con Laravel ✅📝
 
-GRAFITAREAS
-Administrador de Tareas con Laravel
+## Descripción 🖥️
+Grafitareas es una aplicación web desarrollada con **Laravel** que permite gestionar tareas de forma eficiente. Está pensada para facilitar la organización de proyectos mediante un sistema sencillo de administración y seguimiento de actividades.
 
-Este proyecto es una aplicación web desarrollada con Laravel para la gestión eficiente de tareas. Grafitareas ofrece funcionalidades CRUD esenciales para administrar tareas y sus estados, facilitando la organización de proyectos y la asignación de actividades de manera sencilla.
+---
 
-Características:
+## Características principales 🚀
+- **CRUD de Tareas**  
+  Crear, leer, actualizar y eliminar tareas de manera eficiente.  
+- **Gestión de Estados**  
+  Control y actualización del estado de cada tarea, por ejemplo:  
+  - Pendiente  
+  - En Progreso  
+  - Completada  
+- **Interfaz Intuitiva**  
+  Diseño simple y amigable para mejorar la experiencia del usuario.  
 
-CRUD de Tareas: Permite crear, leer, actualizar y eliminar tareas de forma eficiente.
-Gestión de Estados: Administra y actualiza el estado de cada tarea (p.ej., Pendiente, En Progreso, Completada).
-Interfaz de Usuario Intuitiva: Diseñado para ser simple y fácil de usar, mejorando la experiencia del usuario.
-Tecnologías Utilizadas:
+---
 
-Laravel: Framework PHP para el desarrollo web.
-MySQL: Base de datos utilizada para almacenar información de las tareas.
+## Tecnologías utilizadas 🛠️
+- **Laravel** — Framework PHP para desarrollo web moderno.  
+- **MySQL** — Base de datos relacional para almacenar las tareas.  
 
-Video: https://www.youtube.com/watch?v=VsahuWvliRw
+---
 
-///////////////////////////////////////////////////////////////////////
-Instalación.
+## Video demostrativo 🎥  
+[Ver video en YouTube](https://www.youtube.com/watch?v=VsahuWvliRw)  
 
-> Npm Install.
-> Usar servidor local. (xampp o laragon)
-> Instalar sql.
-> Instalar dependencias.
-> Ejecutar.
-//////////////////////////////////////////////////////////////////////
+---
+
+## Instalación ⚙️
+1. Ejecutar:  
+   ```bash
+   npm install
+2. Usar un servidor local como XAMPP o Laragon.
+
+3. Configurar base de datos MySQL.
+
+4. Instalar dependencias de Laravel con:
+
+5. Composer install
+   
+Ejecutar el proyecto.
+
